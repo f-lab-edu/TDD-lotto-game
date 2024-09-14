@@ -10,9 +10,7 @@
         "test": "vitest"
     },
     "devDependencies": {
-        "vite": "^5.4.1"
-    },
-    "dependencies": {
+        "vite": "^5.4.1",
         "vitest": "^2.0.5"
     }
 }
