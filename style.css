@@ -1,0 +1,41 @@
+.mainContainer {
+    margin: 0 auto;
+    width: 512px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 3rem;
+}
+
+form {
+    display: flex;
+    gap: 20px;
+}
+
+input {
+    padding: 0.5rem;
+    width: 100%;
+}
+
+button {
+    width: 64px;
+    background-color: #00bcd4;
+    border: 1px solid #00bcd4;
+    border-radius: 5px;
+}
+
+@media (min-width: 900px) {
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+    .mainContainer {
+        width: 450px;
+    }
+}
+
+@media (max-width: 599px) {
+    .mainContainer {
+        width: 300px;
+    }
+}
