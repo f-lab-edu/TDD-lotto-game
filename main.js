@@ -35,7 +35,7 @@ form.addEventListener('submit', (event) => {
             </p>
           </div>
           <div id="ticketNumbers" style="display: none;">
-            ${tickets.map((ticket) => `<p class="ticket">🎟️ ${ticket.value.join(', ')}</p>`).join('')}
+            ${tickets.map((ticket) => `<p class="ticket">🎟️ ${ticket.value.sort((a, b) => a - b).join(', ')}</p>`).join('')}
           </div>
           <div id="ticketIcons">
             ${Array(tickets.length).fill('<p>🎟️</p>').join('')}
