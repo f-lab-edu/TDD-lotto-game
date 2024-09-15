@@ -7,11 +7,15 @@ export default class Lotto {
 
     #value;
 
-    constructor() {
-        this.#value = [...Lotto.LOTTO_NUMBERS]
-            .sort(() => Math.random() - 0.5)
-            .slice(0, Lotto.SIZE)
-            .sort((a, b) => a - b);
+    constructor(numbers = null) {
+        if (numbers) {
+            this.#value = numbers;
+        } else {
+            this.#value = [...Lotto.LOTTO_NUMBERS]
+                .sort(() => Math.random() - 0.5)
+                .slice(0, Lotto.SIZE)
+                .sort((a, b) => a - b);
+        }
     }
 
     get value() {
