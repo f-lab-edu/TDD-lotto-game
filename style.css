@@ -1,0 +1,122 @@
+.mainContainer {
+    margin: 0 auto;
+    width: 512px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 3rem;
+}
+
+form {
+    display: flex;
+    gap: 20px;
+}
+
+input {
+    padding: 0.5rem;
+    width: 100%;
+}
+
+button {
+    width: 64px;
+    background-color: #00bcd4;
+    border: 1px solid #00bcd4;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#resultContainer {
+    text-align: left;
+}
+
+.showNumberToggle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: '';
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 2px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+#ticketIcons p {
+    width: 20%;
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#ticketIcons {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ticket {
+    font-size: 24px;
+    margin: 12px;
+}
+
+input:checked + .slider {
+    background-color: #2196f3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(16px);
+}
+
+input:checked + .slider {
+    background-color: #2196f3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+@media (min-width: 900px) {
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+    .mainContainer {
+        width: 450px;
+    }
+}
+
+@media (max-width: 599px) {
+    .mainContainer {
+        width: 300px;
+    }
+}
