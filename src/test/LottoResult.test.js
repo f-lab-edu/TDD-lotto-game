@@ -15,10 +15,6 @@ import Lotto from './../Lotto';
 // [x] 로또 당첨 5등은 3개의 번호가 일치해야 한다.
 // [x] 로또 당첨 5등일 때 상금은 5,000원이다.
 
-import { describe, test, expect } from 'vitest';
-import Lotto from './Lotto';
-import LottoResult from './LottoResult';
-
 describe('로또 당첨 결과 테스트', () => {
     const winningNumbers = [1, 2, 3, 4, 5, 6];
     const bonusNumber = 7;
