@@ -32,4 +32,12 @@ export default class Lotto {
 
         return Array.from({ length: price / Lotto.PRICE }).map(() => new Lotto());
     }
+
+    contains(lottoNumber) {
+        return this.#value.includes(lottoNumber);
+    }
+
+    matchCount(lotto) {
+        return this.#value.filter(lottoNumber => lotto.contains(lottoNumber)).length
+    }
 }

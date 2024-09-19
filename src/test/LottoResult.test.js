@@ -16,31 +16,17 @@ import Lotto from './../Lotto';
 // [x] 로또 당첨 5등일 때 상금은 5,000원이다.
 
 describe('로또 당첨 결과 테스트', () => {
-    const winningNumbers = [1, 2, 3, 4, 5, 6];
-    const bonusNumber = 7;
+    const winningLotto = new Lotto([1, 2, 3, 4, 5, 6]); // 당첨 번호
+    const bonusNumber = 7; // 보너스 번호
 
     test('로또 당첨 결과 파악', () => {
-        const lottos = [
-            new Lotto([10, 11, 12, 13, 14, 15]), // 0개 맞춤
-            new Lotto([1, 11, 12, 13, 14, 15]), // 1개 맞춤
-            new Lotto([1, 2, 12, 13, 14, 15]), // 2개 맞춤
-            new Lotto([1, 2, 3, 13, 14, 15]), // 3개 맞춤
-            new Lotto([1, 2, 3, 4, 14, 15]), // 4개 맞춤
-            new Lotto([1, 2, 3, 4, 5, 15]), // 5개 맞춤
-            new Lotto([1, 2, 3, 4, 5, 7]), // 5개 + 보너스 맞춤
-            new Lotto([1, 2, 3, 4, 5, 6]), // 6개 맞춤
-        ];
-
-        const lottoResult = new LottoResult(lottos, winningNumbers, bonusNumber);
-        const results = lottoResult.checkResults();
-
-        expect(results[0]).toBe('꽝'); // 0개 맞춘 경우
-        expect(results[1]).toBe('꽝'); // 1개 맞춘 경우
-        expect(results[2]).toBe('꽝'); // 2개 맞춘 경우
-        expect(results[3]).toBe('5등'); // 3개 맞춘 경우
-        expect(results[4]).toBe('4등'); // 4개 맞춘 경우
-        expect(results[5]).toBe('3등'); // 5개 맞춘 경우
-        expect(results[6]).toBe('2등'); // 5개 + 보너스 맞춘 경우
-        expect(results[7]).toBe('1등'); // 6개 맞춘 경우
+        expect(LottoResult.checkResults(new Lotto([10, 11, 12, 13, 14, 15]), winningLotto, bonusNumber)).toBe('꽝'); // 0개 맞춤
+        expect(LottoResult.checkResults(new Lotto([1, 11, 12, 13, 14, 15]), winningLotto, bonusNumber)).toBe('꽝'); // 1개 맞춤
+        expect(LottoResult.checkResults(new Lotto([1, 2, 12, 13, 14, 15]), winningLotto, bonusNumber)).toBe('꽝'); // 2개 맞춤
+        expect(LottoResult.checkResults(new Lotto([1, 2, 3, 13, 14, 15]), winningLotto, bonusNumber)).toBe('5등'); // 3개 맞춤
+        expect(LottoResult.checkResults(new Lotto([1, 2, 3, 4, 14, 15]), winningLotto, bonusNumber)).toBe('4등'); // 4개 맞춤
+        expect(LottoResult.checkResults(new Lotto([1, 2, 3, 4, 5, 15]), winningLotto, bonusNumber)).toBe('3등'); // 5개 맞춤
+        expect(LottoResult.checkResults(new Lotto([1, 2, 3, 4, 5, 7]), winningLotto, bonusNumber)).toBe('2등'); // 5개+보너스 맞춤
+        expect(LottoResult.checkResults(new Lotto([1, 2, 3, 4, 5, 6]), winningLotto, bonusNumber)).toBe('1등'); // 6개 맞춤
     });
 });
