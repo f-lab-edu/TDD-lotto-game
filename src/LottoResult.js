@@ -16,4 +16,23 @@ export default class LottoResult {
                 return '꽝';
         }
     }
+
+    static getLottoPrize(Lotto, winningLotto, bonusNumber){
+        const lottoRangking = this.checkResults(Lotto,winningLotto,bonusNumber);
+
+        switch(lottoRangking){
+            case '1등':
+                return 2000000000;
+            case '2등':
+                return 30000000;
+            case '3등':
+                return 1500000;
+            case '4등':
+                return 50000;
+            case '5등':
+                return 5000;
+            default:
+                return 0;
+        }
+    }
 }
