@@ -29,4 +29,13 @@ describe('로또 당첨 결과 테스트', () => {
         expect(LottoResult.checkResults(new Lotto([1, 2, 3, 4, 5, 7]), winningLotto, bonusNumber)).toBe('2등'); // 5개+보너스 맞춤
         expect(LottoResult.checkResults(new Lotto([1, 2, 3, 4, 5, 6]), winningLotto, bonusNumber)).toBe('1등'); // 6개 맞춤
     });
+
+    test('당첨 결과에 따른 상금 파악', () => {
+        expect(LottoResult.getLottoPrize(new Lotto([1, 2, 12, 13, 14, 15]), winningLotto, bonusNumber)).toBe(0); // 꽝
+        expect(LottoResult.getLottoPrize(new Lotto([1, 2, 3, 13, 14, 15]), winningLotto, bonusNumber)).toBe(5000); // 5등상금 (5,000원)
+        expect(LottoResult.getLottoPrize(new Lotto([1, 2, 3, 4, 14, 15]), winningLotto, bonusNumber)).toBe(50000); // 4등상금 (50,000원)
+        expect(LottoResult.getLottoPrize(new Lotto([1, 2, 3, 4, 5, 15]), winningLotto, bonusNumber)).toBe(1500000); // 3등상금 (1,500,000원)
+        expect(LottoResult.getLottoPrize(new Lotto([1, 2, 3, 4, 5, 7]), winningLotto, bonusNumber)).toBe(30000000); // 2등상금 (30,000,000원)
+        expect(LottoResult.getLottoPrize(new Lotto([1, 2, 3, 4, 5, 6]), winningLotto, bonusNumber)).toBe(2000000000); // 1등상금(2,000,000,000원)
+    });
 });
