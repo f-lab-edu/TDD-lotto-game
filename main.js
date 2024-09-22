@@ -1,12 +1,14 @@
 import './style.css';
 import Input from './src/Input';
 import Lotto from './src/Lotto';
+import ResultLottoInput from './src/ResultLottoInput';
 
 document.querySelector('#app').innerHTML = `
   <div class="mainContainer">
     <h1>🎱 행운의 로또</h1>
     ${Input()}
     <div id="resultContainer"></div>
+    ${ResultLottoInput()}
   </div>
 `;
 

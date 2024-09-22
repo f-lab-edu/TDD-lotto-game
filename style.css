@@ -106,6 +106,54 @@ input:checked + .slider:before {
     transform: translateX(20px);
 }
 
+#showResultBtn {
+    width: 100%;
+    display: block;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.resultInputcomment {
+    display: flex;
+    width: 100%;
+}
+
+.resultInputcomment p {
+    font-weight: bold;
+}
+
+.winningNumberInputDivFirst {
+    flex: 3;
+}
+
+.winningNumberInputDivSecond {
+    flex: 1;
+}
+
+.lottoWinningNumberInput {
+    width: 24px;
+    height: 32px;
+    margin: 0 2px;
+    text-align: center;
+}
+
+.resultInputDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.lottoBonusNumberInput {
+    width: 24px;
+    height: 32px;
+}
+
+.lottoResultForm {
+    display: flex;
+    flex-direction: column;
+}
+
 @media (min-width: 900px) {
 }
 
