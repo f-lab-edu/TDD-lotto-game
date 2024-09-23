@@ -39,3 +39,40 @@ describe('로또 당첨 결과 테스트', () => {
         expect(LottoResult.getLottoPrize(new Lotto([1, 2, 3, 4, 5, 6]), winningLotto, bonusNumber)).toBe(2000000000); // 1등상금(2,000,000,000원)
     });
 });
+
+describe('로또 수익률 계산 테스트', () => {
+    const winningLotto = new Lotto([1, 2, 3, 4, 5, 6]);
+    const bonusNumber = 7;
+    const ticketPrice = 1000;
+
+    test('로또 수익률 계산', () => {
+        expect(
+            LottoResult.calculateROI([new Lotto([1, 2, 3, 13, 14, 15])], winningLotto, bonusNumber, ticketPrice)
+        ).toBe(500);
+
+        expect(LottoResult.calculateROI([new Lotto([1, 2, 3, 4, 5, 15])], winningLotto, bonusNumber, ticketPrice)).toBe(
+            150000
+        );
+
+        expect(LottoResult.calculateROI([new Lotto([1, 2, 3, 4, 5, 6])], winningLotto, bonusNumber, ticketPrice)).toBe(
+            200000000
+        );
+
+        expect(
+            LottoResult.calculateROI([new Lotto([10, 11, 12, 13, 14, 15])], winningLotto, bonusNumber, ticketPrice)
+        ).toBe(0);
+
+        const multipleLottos = [
+            new Lotto([1, 2, 3, 4, 5, 6]),
+            new Lotto([1, 2, 3, 4, 5, 15]),
+            new Lotto([1, 2, 3, 13, 14, 15]),
+            new Lotto([10, 11, 12, 13, 14, 15]),
+        ];
+
+        const totalSpent = ticketPrice * multipleLottos.length;
+        const totalPrize = 2000000000 + 1500000 + 5000;
+        const expectedROI = (totalPrize / totalSpent) * 100;
+
+        expect(LottoResult.calculateROI(multipleLottos, winningLotto, bonusNumber, ticketPrice)).toBe(expectedROI);
+    });
+});
