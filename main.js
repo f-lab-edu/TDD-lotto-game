@@ -2,6 +2,7 @@ import './style.css';
 import Input from './src/Input';
 import Lotto from './src/Lotto';
 import ResultLottoInput from './src/ResultLottoInput';
+import LottoResult from './src/LottoResult';
 
 document.querySelector('#app').innerHTML = `
   <div class="mainContainer">
@@ -11,6 +12,8 @@ document.querySelector('#app').innerHTML = `
     ${ResultLottoInput()}
   </div>
 `;
+
+let tickets = [];
 
 const form = document.querySelector('#lottoForm');
 form.addEventListener('submit', (event) => {
@@ -24,7 +27,7 @@ form.addEventListener('submit', (event) => {
     }
 
     try {
-        const tickets = Lotto.buy(Number(amount));
+        tickets = Lotto.buy(Number(amount));
         const resultContainer = document.querySelector('#resultContainer');
         resultContainer.innerHTML = `
           <div class="showNumberToggle">
@@ -59,4 +62,30 @@ form.addEventListener('submit', (event) => {
         alert(error.message);
         console.log(error);
     }
+});
+
+const resultBtn = document.getElementById('showResultBtn');
+resultBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const winningNumbers = Array.from(document.querySelectorAll('.lottoWinningNumberInput')).map((input) =>
+        Number(input.value)
+    );
+    const winningLotto = new Lotto(winningNumbers);
+    const bonusNumber = Number(document.querySelector('.lottoBonusNumberInput').value);
+
+    if (winningNumbers.includes(NaN) || isNaN(bonusNumber)) {
+        alert('모든 번호를 올바르게 입력해주세요.');
+        return;
+    }
+
+    const prizeResults = tickets.map((ticket) => {
+        return LottoResult.getLottoPrize(ticket, winningLotto, bonusNumber);
+    });
+
+    console.log('당첨 로또:', winningLotto);
+    console.log('보너스 번호:', bonusNumber);
+    prizeResults.forEach((prize, index) => {
+        console.log(`티켓 ${index + 1} 당첨금: ${prize}`);
+    });
 });
