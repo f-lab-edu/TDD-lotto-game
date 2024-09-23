@@ -17,10 +17,10 @@ export default class LottoResult {
         }
     }
 
-    static getLottoPrize(Lotto, winningLotto, bonusNumber){
-        const lottoRangking = this.checkResults(Lotto,winningLotto,bonusNumber);
+    static getLottoPrize(Lotto, winningLotto, bonusNumber) {
+        const lottoRangking = this.checkResults(Lotto, winningLotto, bonusNumber);
 
-        switch(lottoRangking){
+        switch (lottoRangking) {
             case '1등':
                 return 2000000000;
             case '2등':
@@ -34,5 +34,14 @@ export default class LottoResult {
             default:
                 return 0;
         }
+    }
+
+    static calculateROI(lottos, winningLotto, bonusNumber, ticketPrice) {
+        const totalSpent = lottos.length * ticketPrice;
+        const totalPrize = lottos.reduce((acc, lotto) => {
+            return acc + this.getLottoPrize(lotto, winningLotto, bonusNumber);
+        }, 0);
+
+        return (totalPrize / totalSpent) * 100;
     }
 }

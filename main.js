@@ -3,6 +3,7 @@ import Input from './src/Input';
 import Lotto from './src/Lotto';
 import ResultLottoInput from './src/ResultLottoInput';
 import LottoResult from './src/LottoResult';
+import Modal from './src/Modal';
 
 document.querySelector('#app').innerHTML = `
   <div class="mainContainer">
@@ -14,12 +15,13 @@ document.querySelector('#app').innerHTML = `
 `;
 
 let tickets = [];
+let amount = 0;
 
 const form = document.querySelector('#lottoForm');
 form.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const amount = document.querySelector('#amount').value;
+    amount = document.querySelector('#amount').value;
 
     if (amount <= 0) {
         alert('유효한 금액을 입력해주세요.');
@@ -88,4 +90,6 @@ resultBtn.addEventListener('click', (event) => {
     prizeResults.forEach((prize, index) => {
         console.log(`티켓 ${index + 1} 당첨금: ${prize}`);
     });
+
+    Modal.displayModal(prizeResults, amount);
 });
