@@ -1,0 +1,43 @@
+.resultContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.resultNumbersDiv {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.resulBonusDIv {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+.resultCommentContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+}
+.resultNumbersComment {
+    flex: 3;
+    text-align: center;
+    font-weight: bold;
+}
+.resultBonusComment {
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+}
+.result {
+    margin: 30px 0;
+}
+.result button {
+    width: 100%;
+    padding: 5px;
+    background-color: #00bcd4;
+    border: none;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}

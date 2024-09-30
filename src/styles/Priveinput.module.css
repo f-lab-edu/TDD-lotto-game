@@ -1,0 +1,22 @@
+.priceInputDiv {
+    width: 80%;
+    margin: 0 auto;
+}
+.priceInputDiv p {
+    margin: 5px;
+}
+.form {
+    display: flex;
+    gap: 10px;
+}
+.form input {
+    width: 85%;
+    height: 28px;
+}
+.form button {
+    padding: 5px;
+    width: 15%;
+    background-color: #00bcd4;
+    border: none;
+    cursor: pointer;
+}

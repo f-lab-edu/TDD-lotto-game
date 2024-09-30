@@ -1,0 +1,23 @@
+.appDiv {
+    width: 512px;
+    margin: 0 auto;
+}
+.lottoIconsContainer {
+    width: 80%;
+    margin: 24px auto;
+}
+.lottoCountDiv {
+    margin: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.lottoContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+.swipeDiv {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
